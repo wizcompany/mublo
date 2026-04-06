@@ -1,0 +1,579 @@
+/**
+ * Block System CSS
+ *
+ * 블록 렌더링 기본 스타일
+ */
+
+/* ===================================
+   Block Section (행)
+   =================================== */
+.block-section {
+    position: relative;
+    width: 100%;
+}
+
+.block-section--wide {
+    /* 와이드: 전체 너비 */
+}
+
+/* ===================================
+   Block Container
+   =================================== */
+.block-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.block-container--contained {
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.block-container--wide {
+    max-width: none;
+}
+
+/* ===================================
+   Block Row (칸들의 래퍼)
+   =================================== */
+.block-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+/* ===================================
+   Block Column (칸)
+   =================================== */
+.block-column {
+    box-sizing: border-box;
+    min-height: 1px;
+    min-width: 0; /* flex item 축소 허용 (Swiper 등 내부 콘텐츠 폭 제한) */
+}
+
+/* ===================================
+   Block Title (제목 영역)
+   =================================== */
+.block-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 15px;
+    column-gap: 10px;
+    row-gap: 2px;
+}
+
+.block-title--left {
+    justify-content: flex-start;
+}
+
+.block-title--center {
+    justify-content: center;
+    text-align: center;
+}
+
+.block-title--right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.block-title__text {
+    margin: 0;
+    font-size: var(--title-size-pc, 18px);
+    font-weight: 600;
+}
+
+.block-title__more {
+    color: #666;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.block-title__more:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.block-title__copytext {
+    width: 100%;
+    margin: 0;
+    font-size: var(--copytext-size-pc, 14px);
+    color: #666;
+}
+
+.block-title__image {
+    line-height: 0;
+}
+
+.block-title__img {
+    max-width: 100%;
+    height: auto;
+}
+
+.block-title__img--mo {
+    display: none;
+}
+
+/* ===================================
+   Block Content (콘텐츠 영역)
+   =================================== */
+.block-content {
+    /* 개별 콘텐츠 타입별 스타일 적용 */
+}
+
+/* ===================================
+   Board Block (게시판 최신글)
+   =================================== */
+.block-board__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.block-board__item {
+    border-bottom: 1px solid #eee;
+}
+
+.block-board__item:last-child {
+    border-bottom: none;
+}
+
+.block-board__link {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: inherit;
+    gap: 10px;
+}
+
+.block-board__link:hover {
+    background-color: #f9f9f9;
+}
+
+.block-board__thumb {
+    flex: 0 0 auto;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.block-board__title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.block-board__meta {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 10px;
+    color: #999;
+    font-size: 12px;
+}
+
+.block-board--empty {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
+
+/* ===================================
+   BoardGroup Block (게시판 그룹)
+   =================================== */
+.block-boardgroup__tabs {
+    display: flex;
+    gap: 2px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 15px;
+}
+
+.block-boardgroup__tab {
+    padding: 10px 20px;
+    border: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.block-boardgroup__tab:hover {
+    background-color: #e5e5e5;
+}
+
+.block-boardgroup__tab.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.block-boardgroup__panel {
+    display: none;
+}
+
+.block-boardgroup__panel.active {
+    display: block;
+}
+
+.block-boardgroup__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.block-boardgroup__item {
+    border-bottom: 1px solid #eee;
+}
+
+.block-boardgroup__link {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.block-boardgroup__title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.block-boardgroup__meta {
+    flex: 0 0 auto;
+    color: #999;
+    font-size: 12px;
+}
+
+.block-boardgroup__board-title {
+    margin: 15px 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.block-boardgroup__empty {
+    padding: 15px;
+    text-align: center;
+    color: #999;
+}
+
+/* ===================================
+   Image Block
+   =================================== */
+.block-image {
+    display: block;
+    width: 100%;
+}
+
+.block-image__img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.block-image__link {
+    display: block;
+}
+
+/* 슬라이드 고정 높이 모드: 세로 고정 + 가로 cover 크롭 */
+.mublo-item-layout.has-fixed-height .swiper-slide {
+    height: var(--slide-height);
+    overflow: hidden;
+}
+
+.mublo-item-layout.has-fixed-height .block-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mublo-item-layout.has-fixed-height .block-image__picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mublo-item-layout.has-fixed-height .block-image__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===================================
+   Movie Block (동영상)
+   =================================== */
+.block-movie {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.block-movie__iframe,
+.block-movie__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===================================
+   Outlogin Block (로그인 위젯)
+   =================================== */
+.block-outlogin {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.block-outlogin__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.block-outlogin__field {
+    display: flex;
+    flex-direction: column;
+}
+
+.block-outlogin__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.block-outlogin__submit {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.block-outlogin__submit:hover {
+    background: #555;
+}
+
+.block-outlogin__links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.block-outlogin__link {
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.block-outlogin__link:hover {
+    text-decoration: underline;
+}
+
+.block-outlogin--member {
+    text-align: center;
+}
+
+.block-outlogin__info {
+    margin-bottom: 10px;
+}
+
+.block-outlogin__name {
+    font-weight: 600;
+}
+
+.block-outlogin__level {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 2px 6px;
+    background: #e5e5e5;
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+.block-outlogin__menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.block-outlogin__logout {
+    color: #c00;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* ===================================
+   Menu Block
+   =================================== */
+.block-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.block-menu--horizontal .block-menu__list--depth1 {
+    display: flex;
+    gap: 5px;
+}
+
+.block-menu--vertical .block-menu__list--depth1 {
+    flex-direction: column;
+}
+
+.block-menu__item {
+    position: relative;
+}
+
+.block-menu__link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.block-menu__link:hover {
+    background-color: #f5f5f5;
+}
+
+.block-menu__item--has-children > .block-menu__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.block-menu--vertical .block-menu__item--has-children > .block-menu__list {
+    position: static;
+    box-shadow: none;
+    padding-left: 15px;
+}
+
+.block-menu__item--has-children:hover > .block-menu__list {
+    display: block;
+}
+
+/* ===================================
+   Responsive (Mobile)
+   =================================== */
+@media (max-width: 767px) {
+    .block-row {
+        flex-direction: column;
+    }
+
+    .block-column {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    .block-title__text {
+        font-size: var(--title-size-mo, 16px);
+    }
+
+    .block-title__copytext {
+        font-size: var(--copytext-size-mo, 12px);
+    }
+
+    .block-title__img--pc {
+        display: none;
+    }
+
+    .block-title__img--mo {
+        display: inline;
+    }
+
+    .block-boardgroup__tabs {
+        overflow-x: auto;
+    }
+
+    .block-boardgroup__tab {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .block-container--contained {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* ===================================
+   Preview (미리보기)
+   =================================== */
+.block-preview {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    min-height: 100px;
+}
+
+.block-preview--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #999;
+}
+
+.block-preview__placeholder {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.block-preview__type {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.block-preview__meta {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.block-preview__kind {
+    padding: 2px 6px;
+    background: #e5e5e5;
+    border-radius: 3px;
+}
+
+.block-preview__count {
+    color: #999;
+}
+
+/* Preview Frame in Modal */
+.preview-frame {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    min-height: 200px;
+    max-height: 70vh;
+    overflow-y: auto;
+}

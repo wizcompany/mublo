@@ -1,0 +1,161 @@
+/* ============================================================
+ * MubloModal - 커스텀 모달 스타일
+ * ============================================================ */
+
+/* 오버레이 */
+.customModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* 다이얼로그 */
+.customModal-dialog {
+    width: 100%;
+    max-width: 600px;
+    max-height: calc(100vh - 2rem);
+    margin: 0 auto;
+}
+
+/* 컨텐츠 래퍼 */
+.customModal-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 2rem);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.customModal-content.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* 헤더 */
+.customModal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.customModal-header .header-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 닫기 버튼 */
+.customModal-header .closex {
+    appearance: none;
+    border: none;
+    background: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #6b7280;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background-color 0.15s;
+}
+
+.customModal-header .closex:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.customModal-header .closex::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 바디 */
+.customModal-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+    flex: 1;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 푸터 */
+.customModal-footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* 로딩 상태 */
+.customModal-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    color: #9ca3af;
+}
+
+.customModal-loading::after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #6b7280;
+    border-radius: 50%;
+    animation: mubloModalSpin 0.7s linear infinite;
+}
+
+@keyframes mubloModalSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* 스크롤 잠금 (position: fixed로 스크롤 위치 보존) */
+html.noscroll {
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+/* 사이즈 변형 */
+.customModal.modal-sm .customModal-dialog { max-width: 400px; }
+.customModal.modal-lg .customModal-dialog { max-width: 800px; }
+.customModal.modal-xl .customModal-dialog { max-width: 1100px; }
+.customModal.modal-full .customModal-dialog { max-width: calc(100vw - 2rem); }
+
+/* 반응형 */
+@media (max-width: 576px) {
+    .customModal { padding: 0.5rem; }
+    .customModal-dialog { max-width: 100%; }
+    .customModal-content { border-radius: 8px; }
+    .customModal-header { padding: 0.75rem 1rem; }
+    .customModal-body { padding: 1rem; }
+    .customModal-footer { padding: 0.5rem 1rem; }
+}

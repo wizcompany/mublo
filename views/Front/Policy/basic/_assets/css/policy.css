@@ -1,0 +1,111 @@
+/**
+ * Policy 기본 스킨 CSS
+ */
+
+.policy-view-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.policy-view-wrapper .policy-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.policy-view-wrapper .policy-meta {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 13px;
+    color: #888;
+}
+
+.policy-view-wrapper .policy-meta span {
+    margin: 0 8px;
+}
+
+.policy-view-wrapper .policy-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    word-break: keep-all;
+}
+
+.policy-view-wrapper .policy-body h1,
+.policy-view-wrapper .policy-body h2,
+.policy-view-wrapper .policy-body h3,
+.policy-view-wrapper .policy-body h4 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.policy-view-wrapper .policy-body h2 {
+    font-size: 20px;
+}
+
+.policy-view-wrapper .policy-body h3 {
+    font-size: 17px;
+}
+
+.policy-view-wrapper .policy-body p {
+    margin-bottom: 12px;
+}
+
+.policy-view-wrapper .policy-body ul,
+.policy-view-wrapper .policy-body ol {
+    margin-bottom: 12px;
+    padding-left: 25px;
+}
+
+.policy-view-wrapper .policy-body li {
+    margin-bottom: 6px;
+}
+
+.policy-view-wrapper .policy-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.policy-view-wrapper .policy-body table th,
+.policy-view-wrapper .policy-body table td {
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+.policy-view-wrapper .policy-body table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.policy-view-wrapper .policy-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.policy-view-wrapper .policy-footer .btn-back {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 14px;
+    color: #555;
+    background: #f1f3f5;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.policy-view-wrapper .policy-footer .btn-back:hover {
+    background: #e9ecef;
+}

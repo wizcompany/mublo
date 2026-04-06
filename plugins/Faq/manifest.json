@@ -1,0 +1,14 @@
+{
+    "name": "Faq",
+    "label": "FAQ 관리",
+    "description": "자주 묻는 질문(FAQ) 관리 플러그인",
+    "version": "1.0.0",
+    "author": "Mublo",
+    "author_url": "https://github.com/wizcompany/Mublo",
+    "type": "plugin",
+    "category": "content",
+    "icon": "bi-question-circle",
+    "requires": {
+        "core": ">=1.0.0"
+    }
+}

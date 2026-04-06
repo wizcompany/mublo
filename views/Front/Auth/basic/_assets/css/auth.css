@@ -1,0 +1,313 @@
+/**
+ * Auth 기본 스킨 CSS
+ *
+ * Login, FindAccount, ResetPassword, ResetPasswordExpired 공용 스타일
+ */
+
+/* =========================================================
+ * 로고 (헤더 없을 때 홈 링크)
+ * ========================================================= */
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.auth-logo a {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+}
+
+.auth-logo img {
+    max-height: 40px;
+    width: auto;
+}
+
+.auth-logo span {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* =========================================================
+ * 공통 기반 (wrapper, form, btn, alert, auth-links)
+ * ========================================================= */
+
+.auth-login-wrapper,
+.find-account-wrapper,
+.reset-pw-wrapper,
+.expired-wrapper {
+    margin: auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더/푸터 없이 화면 정중앙 배치 */
+.mublo-main:has(.auth-login-wrapper, .find-account-wrapper, .reset-pw-wrapper, .expired-wrapper) {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mublo-main:has(.auth-login-wrapper, .find-account-wrapper, .reset-pw-wrapper, .expired-wrapper) .mublo-content,
+.mublo-main:has(.auth-login-wrapper, .find-account-wrapper, .reset-pw-wrapper, .expired-wrapper) .mublo-layout,
+.mublo-main:has(.auth-login-wrapper, .find-account-wrapper, .reset-pw-wrapper, .expired-wrapper) .mublo-layout__content {
+    display: contents;
+}
+
+.auth-login-wrapper { max-width: 400px; width: 100%; }
+.find-account-wrapper { max-width: 460px; width: 100%; }
+.reset-pw-wrapper { max-width: 460px; width: 100%; }
+.expired-wrapper {
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+}
+
+.auth-login-wrapper h2,
+.find-account-wrapper h2,
+.reset-pw-wrapper h2,
+.expired-wrapper h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* --- SNS 프로필 완성 설명 --- */
+
+.sns-profile-desc {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.auth-login-wrapper .required {
+    color: #e74c3c;
+}
+
+.reset-pw-wrapper h2 { margin-bottom: 10px; }
+.expired-wrapper h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+/* --- Form --- */
+
+.auth-login-wrapper .form-group,
+.find-account-wrapper .form-group,
+.reset-pw-wrapper .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-login-wrapper .form-group label,
+.find-account-wrapper .form-group label,
+.reset-pw-wrapper .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.auth-login-wrapper .form-control,
+.find-account-wrapper .form-control,
+.reset-pw-wrapper .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.auth-login-wrapper .form-control:focus,
+.find-account-wrapper .form-control:focus,
+.reset-pw-wrapper .form-control:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* --- Button --- */
+
+.auth-login-wrapper .btn,
+.find-account-wrapper .btn,
+.reset-pw-wrapper .btn,
+.expired-wrapper .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background: #667eea;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.expired-wrapper .btn {
+    display: inline-block;
+    width: auto;
+    padding: 12px 32px;
+    font-size: 15px;
+}
+
+.auth-login-wrapper .btn:hover,
+.find-account-wrapper .btn:hover,
+.reset-pw-wrapper .btn:hover,
+.expired-wrapper .btn:hover {
+    background: #5a6fd6;
+    color: #fff;
+    text-decoration: none;
+}
+
+.find-account-wrapper .btn:disabled,
+.reset-pw-wrapper .btn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+/* --- Alert --- */
+
+.auth-login-wrapper .alert,
+.find-account-wrapper .alert,
+.reset-pw-wrapper .alert {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.auth-login-wrapper .alert-danger,
+.find-account-wrapper .alert-danger,
+.reset-pw-wrapper .alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.find-account-wrapper .alert-success,
+.reset-pw-wrapper .alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.find-account-wrapper .alert-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* --- Auth Links --- */
+
+.auth-login-wrapper .auth-links,
+.find-account-wrapper .auth-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.find-account-wrapper .auth-links { margin-top: 25px; }
+
+.auth-login-wrapper .auth-links a,
+.find-account-wrapper .auth-links a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.auth-login-wrapper .auth-links a:hover,
+.find-account-wrapper .auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+ * FindAccount 전용
+ * ========================================================= */
+
+.find-account-wrapper .tabs {
+    display: flex;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 25px;
+}
+
+.find-account-wrapper .tab-btn {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #888;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+}
+
+.find-account-wrapper .tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.find-account-wrapper .tab-content {
+    display: none;
+}
+
+.find-account-wrapper .tab-content.active {
+    display: block;
+}
+
+.find-account-wrapper .result-box {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.find-account-wrapper .result-box .user-id {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.find-account-wrapper .form-help {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* =========================================================
+ * ResetPassword 전용
+ * ========================================================= */
+
+.reset-pw-wrapper .subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+ * ResetPasswordExpired 전용
+ * ========================================================= */
+
+.expired-wrapper .icon {
+    font-size: 48px;
+    color: #e74c3c;
+    margin-bottom: 16px;
+}
+
+.expired-wrapper p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}

@@ -1,0 +1,295 @@
+/**
+ * Search 기본 스킨 CSS
+ */
+
+/* ─── 검색 페이지 ─── */
+.search-page {
+    max-width: var(--content-max-width, 1200px);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+}
+
+/* ─── 검색 폼 ─── */
+.search-form {
+    max-width: 420px;
+    margin: 0 auto 2rem;
+}
+.search-form__inner {
+    display: flex;
+    align-items: center;
+    background: #f7f7f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 3px 3px 3px 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-form__inner:focus-within {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+    background: #fff;
+}
+.search-form__icon {
+    color: #999;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+.search-form__input {
+    flex: 1;
+    padding: 6px 8px;
+    font-size: 0.875rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #333;
+    min-width: 0;
+}
+.search-form__input::placeholder {
+    color: #bbb;
+}
+.search-form__clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: #ddd;
+    color: #666;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-right: 5px;
+    transition: background 0.15s;
+}
+.search-form__clear:hover {
+    background: #ccc;
+}
+.search-form__btn {
+    padding: 6px 16px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 17px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+.search-form__btn:hover {
+    background: #1d4ed8;
+}
+
+/* ─── 빈 상태 ─── */
+.search-empty__icon {
+    display: block;
+    font-size: 2rem;
+    color: #ccc;
+    margin-bottom: 0.75rem;
+}
+.search-empty__text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+.search-empty__hint {
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+/* ─── 결과 요약 ─── */
+.search-summary {
+    text-align: center;
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+.search-summary__count {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+/* ─── 검색 그룹 ─── */
+.search-group {
+    margin-bottom: 2rem;
+}
+.search-group__title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.search-group__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    background: #eee;
+    color: #666;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 0 6px;
+}
+
+/* ─── 게시판 검색 결과 ─── */
+.search-result-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.search-result-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 10px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+.search-result-item:hover {
+    background: #f8f9fa;
+}
+.search-result-item + .search-result-item {
+    border-top: 1px solid #f0f0f0;
+}
+.search-result-item__thumb-link {
+    flex-shrink: 0;
+}
+.search-result-item__thumb {
+    width: 80px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+.search-result-item__body {
+    flex: 1;
+    min-width: 0;
+}
+.search-result-item__title {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    margin-bottom: 3px;
+}
+.search-result-item__title:hover {
+    color: #2563eb;
+}
+.search-result-item__summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.5;
+    margin: 0 0 5px;
+}
+.search-result-item__meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.725rem;
+    color: #aaa;
+}
+.search-result-item__badge {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #666;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+}
+.search-result-item__date {
+    color: #bbb;
+}
+
+/* ─── 정사각형 썸네일 (상품 이미지용) ─── */
+.search-result-item__thumb--square {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+}
+.search-result-item__thumb--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #ccc;
+}
+
+/* ─── 상품 가격 ─── */
+.search-result-item__price {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin: 2px 0 4px;
+}
+
+/* ─── 리뷰 별점 ─── */
+.search-result-item__star {
+    color: #f59e0b;
+}
+
+/* ─── 더보기 링크 ─── */
+.search-group__more {
+    text-align: right;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+.search-group__more a {
+    font-size: 0.8rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+.search-group__more a:hover {
+    text-decoration: underline;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 575px) {
+    .search-page {
+        padding-top: 2rem;
+    }
+    .search-form {
+        max-width: 100%;
+    }
+    .search-result-item {
+        gap: 10px;
+        padding: 10px 6px;
+    }
+    .search-result-item__thumb {
+        width: 64px;
+        height: 48px;
+    }
+    .search-result-item__title {
+        font-size: 0.85rem;
+    }
+    .search-result-item__summary {
+        -webkit-line-clamp: 1;
+    }
+}

@@ -1,0 +1,135 @@
+/**
+ * Block Skin: outlogin/basic
+ */
+
+.block-outlogin--basic .block-outlogin__content {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* 로그인 상태 */
+.block-outlogin--basic .block-outlogin__info {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 0.875rem;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.block-outlogin--basic .block-outlogin__name {
+    font-weight: 600;
+    color: #212529;
+}
+
+.block-outlogin--basic .block-outlogin__level {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    background: #e9ecef;
+    border-radius: 10px;
+    color: #6c757d;
+    vertical-align: middle;
+}
+
+.block-outlogin--basic .block-outlogin__buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* 공용 버튼 */
+.block-outlogin--basic .block-outlogin__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+.block-outlogin--basic .block-outlogin__btn--profile {
+    background: #0d6efd;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.25);
+}
+.block-outlogin--basic .block-outlogin__btn--profile:hover {
+    background: #0b5ed7;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(13, 110, 253, 0.35);
+    transform: translateY(-1px);
+}
+
+.block-outlogin--basic .block-outlogin__btn--logout {
+    background: #fff;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+.block-outlogin--basic .block-outlogin__btn--logout:hover {
+    background: #f8f9fa;
+    border-color: #ced4da;
+    color: #212529;
+    transform: translateY(-1px);
+}
+
+/* 로그인 폼 */
+.block-outlogin--basic .block-outlogin__field {
+    margin-bottom: 8px;
+}
+
+.block-outlogin--basic .block-outlogin__input {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 0.8125rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+.block-outlogin--basic .block-outlogin__input:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+.block-outlogin--basic .block-outlogin__btn--login {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.25);
+}
+.block-outlogin--basic .block-outlogin__btn--login:hover {
+    background: #0b5ed7;
+    box-shadow: 0 3px 8px rgba(13, 110, 253, 0.35);
+    transform: translateY(-1px);
+}
+
+.block-outlogin--basic .block-outlogin__links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 0.75rem;
+}
+
+.block-outlogin--basic .block-outlogin__link {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.block-outlogin--basic .block-outlogin__link:hover {
+    color: #0d6efd;
+}

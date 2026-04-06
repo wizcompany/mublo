@@ -1,0 +1,79 @@
+/* ========================================
+ * Shop Package - Admin 전용 스타일
+ *
+ * 로드: <link rel="stylesheet" href="/serve/package/Shop/assets/css/admin-style.css">
+ * ======================================== */
+
+/* 상품 목록 테이블 */
+.shop-admin .product-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.shop-admin .product-name {
+    max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 상품 폼 — 이미지 카드 */
+.shop-admin .img-card-preview {
+    background: #f8f9fa;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shop-admin .img-card-preview img {
+    max-height: 160px;
+    object-fit: contain;
+}
+
+/* 옵션 프리셋 뱃지 */
+.shop-admin .badge-option-basic { background-color: var(--bs-primary); }
+.shop-admin .badge-option-extra { background-color: var(--bs-success); }
+
+/* 조합 미리보기 테이블 */
+.shop-admin #combo-preview-content .table {
+    font-size: 0.85rem;
+}
+
+/* 주문 상태 뱃지 */
+.shop-admin .order-status-badge {
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+}
+
+/* 카테고리 트리 (관리 페이지) */
+.shop-admin .category-tree-item {
+    cursor: grab;
+    padding: 6px 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    background: #fff;
+}
+.shop-admin .category-tree-item:hover {
+    background: #f0f4ff;
+}
+.shop-admin .category-tree-item.sortable-ghost {
+    opacity: 0.4;
+}
+
+/* 대시보드 통계 카드 */
+.shop-admin .stat-card .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.shop-admin .stat-card .stat-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* 설정 페이지 — sticky-spy 내부 간격 */
+.shop-admin .config-section .card + .card {
+    margin-top: 0.5rem;
+}

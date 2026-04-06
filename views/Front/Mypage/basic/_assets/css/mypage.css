@@ -1,0 +1,565 @@
+/**
+ * Mypage 기본 스킨 CSS
+ *
+ * _layout, Profile, Withdraw, Balance, Articles, Comments 공용 스타일
+ */
+
+/* =========================================================
+ * 레이아웃 (_layout.php)
+ * ========================================================= */
+
+.mypage-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* 사이드바 */
+.mypage-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.mypage-user-card {
+    padding: 20px;
+    background: #667eea;
+    color: #fff;
+    text-align: center;
+}
+
+.mypage-user-card .user-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.mypage-user-card .user-level {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+.mypage-nav {
+    padding: 10px 0;
+}
+
+.mypage-nav-item {
+    display: block;
+    padding: 11px 20px;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.mypage-nav-item:hover {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.mypage-nav-item.active {
+    background: #f0f4ff;
+    color: #667eea;
+    font-weight: 600;
+    border-left-color: #667eea;
+}
+
+.mypage-nav-divider {
+    height: 1px;
+    background: #e9ecef;
+    margin: 6px 0;
+}
+
+/* 콘텐츠 */
+.mypage-content {
+    flex: 1;
+    min-width: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+}
+
+/* 레이아웃 반응형 */
+@media (max-width: 768px) {
+    .mypage-wrapper {
+        flex-direction: column;
+    }
+
+    .mypage-sidebar,
+    .mypage-content {
+        width: 100%;
+    }
+
+    .mypage-nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 8px;
+        gap: 4px;
+    }
+
+    .mypage-nav-item {
+        border-left: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+    }
+
+    .mypage-nav-item.active {
+        border-left: none;
+    }
+
+    .mypage-nav-divider {
+        display: none;
+    }
+}
+
+/* =========================================================
+ * Profile (회원정보수정)
+ * ========================================================= */
+
+.mypage-profile .section-title {
+    font-size: 17px;
+    color: #333;
+    margin: 24px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #667eea;
+    font-weight: 600;
+}
+
+.mypage-profile .section-title:first-child {
+    margin-top: 0;
+}
+
+.mypage-profile .profile-info {
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.mypage-profile .profile-info p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.mypage-profile .profile-info strong {
+    display: inline-block;
+    width: 90px;
+    color: #333;
+    font-weight: 500;
+}
+
+.mypage-profile .form-group {
+    margin-bottom: 16px;
+}
+
+.mypage-profile .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+.mypage-profile .form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.mypage-profile .form-control:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.mypage-profile .form-help {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.mypage-profile .btn-primary {
+    padding: 10px 28px;
+    font-size: 15px;
+    color: #fff;
+    background: #667eea;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mypage-profile .btn-primary:hover {
+    background: #5a6fd6;
+}
+
+.mypage-profile .alert {
+    padding: 12px 15px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.mypage-profile .alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mypage-profile .alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* =========================================================
+ * Withdraw (회원탈퇴)
+ * ========================================================= */
+
+.mypage-withdraw .warning-box {
+    padding: 18px;
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.mypage-withdraw .warning-box h4 {
+    color: #856404;
+    margin: 0 0 12px;
+    font-size: 15px;
+}
+
+.mypage-withdraw .warning-box ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #856404;
+    font-size: 13px;
+}
+
+.mypage-withdraw .warning-box li {
+    margin: 6px 0;
+}
+
+.mypage-withdraw .form-group {
+    margin-bottom: 16px;
+}
+
+.mypage-withdraw .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+.mypage-withdraw .form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.mypage-withdraw .form-control:focus {
+    outline: none;
+    border-color: #e74c3c;
+}
+
+.mypage-withdraw .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.mypage-withdraw .checkbox-group input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.mypage-withdraw .btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.mypage-withdraw .btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.mypage-withdraw .btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.mypage-withdraw .btn-secondary:hover {
+    background: #5a6268;
+}
+
+.mypage-withdraw .btn-danger {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.mypage-withdraw .btn-danger:hover {
+    background: #c0392b;
+}
+
+.mypage-withdraw .alert-danger {
+    padding: 12px 15px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    font-size: 14px;
+}
+
+/* =========================================================
+ * Balance (포인트 내역)
+ * ========================================================= */
+
+.balance-card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.balance-card .label {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 6px;
+}
+
+.balance-card .amount {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.balance-card .amount small {
+    font-size: 15px;
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+.balance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.balance-table th {
+    padding: 10px 12px;
+    background: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.balance-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+    vertical-align: middle;
+}
+
+.balance-table .amount-plus {
+    color: #198754;
+    font-weight: 600;
+}
+
+.balance-table .amount-minus {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.balance-table .empty-row td {
+    text-align: center;
+    padding: 30px;
+    color: #aaa;
+}
+
+.balance-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.balance-pagination a,
+.balance-pagination span {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    color: #555;
+}
+
+.balance-pagination a:hover {
+    background: #f8f9fa;
+}
+
+.balance-pagination .current {
+    background: #667eea;
+    color: #fff;
+    border-color: #667eea;
+}
+
+/* =========================================================
+ * Articles / Comments 공용
+ * ========================================================= */
+
+.mypage-list-summary {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.nav-page {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* ─── Articles (내가 쓴 글) ─── */
+
+.mypage-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.mypage-list-table th {
+    padding: 10px 12px;
+    background: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+}
+
+.mypage-list-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+    vertical-align: middle;
+}
+
+.mypage-list-table .board-name {
+    font-size: 11px;
+    color: #888;
+    white-space: nowrap;
+}
+
+.mypage-list-table .article-title a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.mypage-list-table .article-title a:hover {
+    color: #667eea;
+    text-decoration: underline;
+}
+
+.mypage-list-table .meta {
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap;
+}
+
+.mypage-list-table .empty-row td {
+    text-align: center;
+    padding: 30px;
+    color: #aaa;
+}
+
+/* ─── Comments (내가 쓴 댓글) ─── */
+
+.mypage-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment-item {
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 14px 16px;
+    background: #fafbfc;
+}
+
+.comment-item .comment-article {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.comment-item .comment-article a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.comment-item .comment-article a:hover {
+    text-decoration: underline;
+}
+
+.comment-item .comment-article .board-badge {
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+}
+
+.comment-item .comment-content {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.comment-item .comment-date {
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 6px;
+}

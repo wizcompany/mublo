@@ -1,0 +1,120 @@
+<?php
+
+namespace Mublo\Packages\Shop\Repository;
+
+use Mublo\Infrastructure\Database\Database;
+use Mublo\Infrastructure\Database\DatabaseManager;
+
+/**
+ * ShipmentRepository
+ *
+ * shop_shipments 테이블 접근
+ *
+ * shop_shipments 는 주문의 실제 배송(택배) 추적 정보를 저장합니다.
+ * - 한 주문에 묶음 배송(order_detail_id = NULL) 또는 상품별 개별 배송이 가능합니다.
+ * - invoice_no + company_id 조합으로 택배 추적 URL을 생성합니다.
+ * - 배송 상태는 shop_shipments.shipment_status 로 관리하며
+ *   주문 상태(shop_orders.order_status)와는 별개로 운영됩니다.
+ */
+class ShipmentRepository
+{
+    private Database $db;
+    private string $table = 'shop_shipments';
+
+    public function __construct(?Database $db = null)
+    {
+        $this->db = $db ?? DatabaseManager::getInstance()->connect();
+    }
+
+    public function find(int $shipmentId): ?array
+    {
+        return $this->db->selectOne(
+            "SELECT s.*, dc.company_name, dc.tracking_url_template
+             FROM {$this->table} s
+             LEFT JOIN shop_delivery_companies dc ON dc.company_id = s.company_id
+             WHERE s.shipment_id = ?",
+            [$shipmentId]
+        ) ?: null;
+    }
+
+    public function getByOrderNo(string $orderNo): array
+    {
+        return $this->db->select(
+            "SELECT s.*, dc.company_name, dc.tracking_url_template
+             FROM {$this->table} s
+             LEFT JOIN shop_delivery_companies dc ON dc.company_id = s.company_id
+             WHERE s.order_no = ?
+             ORDER BY s.shipment_id ASC",
+            [$orderNo]
+        );
+    }
+
+    public function getByInvoiceNo(string $invoiceNo): ?array
+    {
+        return $this->db->selectOne(
+            "SELECT s.*, dc.company_name, dc.tracking_url_template
+             FROM {$this->table} s
+             LEFT JOIN shop_delivery_companies dc ON dc.company_id = s.company_id
+             WHERE s.invoice_no = ?",
+            [$invoiceNo]
+        ) ?: null;
+    }
+
+    public function create(array $data): int
+    {
+        $columns      = array_keys($data);
+        $placeholders = implode(', ', array_fill(0, count($data), '?'));
+        $columnList   = implode(', ', $columns);
+
+        return $this->db->insert(
+            "INSERT INTO {$this->table} ({$columnList}) VALUES ({$placeholders})",
+            array_values($data)
+        );
+    }
+
+    public function update(int $shipmentId, array $data): int
+    {
+        $sets   = [];
+        $values = [];
+        foreach ($data as $col => $val) {
+            $sets[]   = "`{$col}` = ?";
+            $values[] = $val;
+        }
+        $values[] = $shipmentId;
+
+        return $this->db->execute(
+            "UPDATE {$this->table} SET " . implode(', ', $sets) . " WHERE shipment_id = ?",
+            $values
+        );
+    }
+
+    public function updateStatus(int $shipmentId, string $status): int
+    {
+        $extra = [];
+        $params = [$status];
+
+        if ($status === 'DELIVERED') {
+            $extra[]  = '`delivered_at` = ?';
+            $params[] = date('Y-m-d H:i:s');
+        } elseif ($status === 'PICKED_UP') {
+            $extra[]  = '`shipped_at` = ?';
+            $params[] = date('Y-m-d H:i:s');
+        }
+
+        $setClauses = array_merge(['`shipment_status` = ?'], $extra);
+        $params[]   = $shipmentId;
+
+        return $this->db->execute(
+            "UPDATE {$this->table} SET " . implode(', ', $setClauses) . " WHERE shipment_id = ?",
+            $params
+        );
+    }
+
+    public function delete(int $shipmentId): int
+    {
+        return $this->db->execute(
+            "DELETE FROM {$this->table} WHERE shipment_id = ?",
+            [$shipmentId]
+        );
+    }
+}

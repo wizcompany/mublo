@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/**
+ * Front Common CSS
+ *
+ * Bootstrap 비의존, Front 공통 컴포넌트 스타일
+ * 각 스킨에서 CSS 변수를 오버라이드하여 커스터마이징 가능
+ */
+
+/* ========================================
+   CSS Variables (기본값)
+   ======================================== */
+:root {
+    /* 페이지네이션 */
+    --pagination-gap: 0.25rem;
+    --pagination-font-size: 0.8125rem;
+    --pagination-border-radius: 6px;
+    --pagination-item-size: 32px;
+    --pagination-color: #555;
+    --pagination-hover-bg: #f0f0f0;
+    --pagination-hover-color: #222;
+    --pagination-active-bg: #333;
+    --pagination-active-color: #fff;
+    --pagination-disabled-color: #bbb;
+}
+
+/* ========================================
+   Pagination Component
+   ======================================== */
+.nav-page {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: var(--pagination-gap);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page-item {
+    display: flex;
+}
+
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--pagination-item-size);
+    height: var(--pagination-item-size);
+    padding: 0 6px;
+    font-size: var(--pagination-font-size);
+    color: var(--pagination-color);
+    text-decoration: none;
+    border-radius: var(--pagination-border-radius);
+    border: none;
+    background: transparent;
+    transition: background-color 0.15s, color 0.15s;
+    cursor: pointer;
+}
+
+.page-link:hover {
+    background: var(--pagination-hover-bg);
+    color: var(--pagination-hover-color);
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    background: var(--pagination-active-bg);
+    color: var(--pagination-active-color);
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.page-item.disabled .page-link {
+    color: var(--pagination-disabled-color);
+    pointer-events: none;
+    cursor: default;
+}
+
+/* SR-only (Bootstrap 미사용 환경 대응) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 이전/다음 텍스트: 기본 숨김 */
+.page-label {
+    display: none;
+}
+
+/* 모바일: 처음/마지막/번호 숨기고 이전/다음 + 텍스트 표시 */
+@media (max-width: 424.98px) {
+    .page-start,
+    .page-end,
+    .page-count {
+        display: none;
+    }
+
+    .page-label {
+        display: inline;
+    }
+
+    .page-prev .page-link,
+    .page-next .page-link {
+        gap: 4px;
+        padding: 0 12px;
+    }
+}
