@@ -1,0 +1,14 @@
+{
+    "name": "Widget",
+    "label": "위젯 관리",
+    "description": "화면 고정 위젯 플러그인 (PC 좌/우, 모바일 하단 아이콘)",
+    "version": "1.0.0",
+    "author": "Mublo",
+    "author_url": "https://github.com/wizcompany/Mublo",
+    "type": "plugin",
+    "category": "content",
+    "icon": "bi-grid-3x3-gap",
+    "requires": {
+        "core": ">=1.0.0"
+    }
+}

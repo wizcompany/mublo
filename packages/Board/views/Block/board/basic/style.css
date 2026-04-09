@@ -1,0 +1,91 @@
+/**
+ * Block Skin: board/basic
+ * 게시판 최신글 기본 스킨 스타일
+ */
+
+.block-board-basic {
+    width: 100%;
+}
+
+.block-board-basic .block-header {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.block-board-basic .block-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+
+.block-board-basic .block-copytext {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+.block-board-basic .block-more {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.block-board-basic .block-more:hover {
+    color: #495057;
+}
+
+.block-board-basic .block-content {
+    width: 100%;
+}
+
+.block-board-basic .block-empty {
+    text-align: center;
+    color: #6c757d;
+    padding: 20px 0;
+}
+
+.block-board-basic .block-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.block-board-basic .block-item {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.block-board-basic .block-item:last-child {
+    border-bottom: none;
+}
+
+.block-board-basic .block-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    color: #212529;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.block-board-basic .block-item a:hover {
+    color: var(--bs-primary, #0d6efd);
+}
+
+.block-board-basic .item-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+
+.block-board-basic .item-date {
+    font-size: 0.75rem;
+    color: #adb5bd;
+    flex-shrink: 0;
+}

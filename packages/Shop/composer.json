@@ -1,0 +1,43 @@
+{
+    "name": "mublo/shop",
+    "description": "Mublo Framework용 쇼핑몰 패키지 — 상품/장바구니/주문/결제/쿠폰/배송 기능 제공",
+    "license": "MIT",
+    "type": "mublo-package",
+    "keywords": ["mublo", "shop", "ecommerce", "cart", "order", "payment"],
+    "homepage": "https://github.com/mublo-framework/shop",
+    "authors": [
+        {
+            "name": "Mublo Contributors",
+            "homepage": "https://github.com/mublo-framework/shop/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "mublo/framework": ">=1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mublo\\Packages\\Shop\\": "./"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Shop\\": "./tests/"
+        }
+    },
+    "extra": {
+        "mublo": {
+            "package": "Shop",
+            "manifest": "manifest.json",
+            "migrations": "database/migrations",
+            "routes": "routes.php",
+            "provider": "Mublo\\Packages\\Shop\\ShopProvider"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

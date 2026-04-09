@@ -1,0 +1,154 @@
+/**
+ * Block Skin: product/basic - Style
+ */
+
+/* 카드 리스트 */
+.block-product__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 카드 링크 */
+.block-product__card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+}
+
+.block-product__card:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.block-product__card:hover .block-product__image {
+    transform: scale(1.03);
+}
+
+/* 이미지 영역 */
+.block-product__image-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f5f5f5;
+    aspect-ratio: 1 / 1;
+}
+
+.block-product__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.block-product__image--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+}
+
+.block-product__image--placeholder svg {
+    width: 40%;
+    height: 40%;
+}
+
+/* 품절 오버레이 */
+.block-product__item--soldout .block-product__image-wrap {
+    opacity: 0.5;
+}
+
+.block-product__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* 배지 */
+.block-product__badges {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.block-product__badge {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1.4;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.block-product__badge--new {
+    background: #22c55e;
+}
+
+.block-product__badge--sale {
+    background: #ef4444;
+}
+
+.block-product__badge--custom {
+    background: #6366f1;
+}
+
+/* 상품 정보 */
+.block-product__info {
+    padding: 10px 2px 0;
+}
+
+.block-product__name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 가격 */
+.block-product__price {
+    margin-top: 6px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.block-product__discount {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+.block-product__current-price {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.block-product__origin-price {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+/* 적립금 */
+.block-product__reward {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    color: #f59e0b;
+}

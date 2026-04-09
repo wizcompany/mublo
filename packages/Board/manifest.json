@@ -1,0 +1,13 @@
+{
+    "name": "Board",
+    "label": "게시판",
+    "description": "게시판, 커뮤니티 기능을 제공하는 기본 패키지",
+    "version": "1.0.0",
+    "author": "Mublo",
+    "author_url": "https://github.com/wizcompany/Mublo",
+    "icon": "bi-clipboard-text",
+    "default": true,
+    "requires": {
+        "core": ">=1.0.0"
+    }
+}

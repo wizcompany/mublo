@@ -1,0 +1,64 @@
+/* ==========================================================================
+   CustomField — 커스텀 필드 공용 스타일
+   CustomFieldRenderer에서 생성하는 HTML에 적용
+   ========================================================================== */
+
+/* Address 필드 */
+.address-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cf-address-row {
+    display: flex;
+    gap: 10px;
+}
+
+.cf-address-zipcode {
+    width: 140px;
+}
+
+/* File 필드 */
+.cf-file-current {
+    margin-bottom: 8px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cf-file-size {
+    color: #888;
+    font-size: 12px;
+}
+
+.cf-file-delete {
+    color: #e74c3c;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.cf-file-input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cf-file-result {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.cf-file-remove {
+    color: #e74c3c;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

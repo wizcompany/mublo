@@ -1,0 +1,159 @@
+{
+  "version": "1.0",
+  "type": "seeder",
+  "name": "메인화면 환영 블록",
+  "description": "설치 시 메인화면(index)에 자동 생성되는 기본 블록",
+  "position": "index",
+  "page": null,
+  "rows": [
+    {
+      "admin_title": "환영 메시지",
+      "section_id": "welcome-hero",
+      "width_type": 0,
+      "column_count": 1,
+      "column_margin": 0,
+      "column_width_unit": 1,
+      "pc_height": "",
+      "mobile_height": "",
+      "pc_padding": "60px 20px",
+      "mobile_padding": "30px 15px",
+      "background_config": {
+        "color": "#f8f9fa"
+      },
+      "is_active": true,
+      "columns": [
+        {
+          "column_index": 0,
+          "width": "100%",
+          "pc_padding": "0",
+          "mobile_padding": "0",
+          "background_config": {},
+          "border_config": {},
+          "title_config": {
+            "show": false
+          },
+          "content_type": "html",
+          "content_kind": "CORE",
+          "content_skin": "basic",
+          "content_config": {
+            "html": "<div style=\"text-align:center; max-width:700px; margin:0 auto;\"><h2 style=\"font-size:28px; font-weight:700; color:#1a1a2e; margin-bottom:16px;\">사이트에 오신 것을 환영합니다</h2><p style=\"font-size:16px; color:#6c757d; line-height:1.6;\">이 영역은 관리자 페이지의 블록 관리에서 자유롭게 수정할 수 있습니다.<br>이미지, 동영상, 게시판, 메뉴 등 다양한 블록을 배치해 보세요.</p></div>"
+          },
+          "content_items": null,
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "admin_title": "안내 카드 영역",
+      "section_id": "info-cards",
+      "width_type": 1,
+      "column_count": 3,
+      "column_margin": 20,
+      "column_width_unit": 1,
+      "pc_height": "",
+      "mobile_height": "",
+      "pc_padding": "40px 20px",
+      "mobile_padding": "20px 15px",
+      "background_config": {},
+      "is_active": true,
+      "columns": [
+        {
+          "column_index": 0,
+          "width": "",
+          "pc_padding": "20px",
+          "mobile_padding": "15px",
+          "background_config": {
+            "color": "#ffffff"
+          },
+          "border_config": {
+            "width": "1px",
+            "color": "#e9ecef",
+            "radius": "8px",
+            "style": "solid"
+          },
+          "title_config": {
+            "show": true,
+            "text": "블록 시스템",
+            "color": "#1a1a2e",
+            "size_pc": "18",
+            "size_mo": "16",
+            "position": "center",
+            "more_link": false
+          },
+          "content_type": "html",
+          "content_kind": "CORE",
+          "content_skin": "basic",
+          "content_config": {
+            "html": "<p style=\"text-align:center; color:#6c757d; font-size:14px; line-height:1.6;\">코드 수정 없이 관리자 화면에서 페이지를 구성할 수 있습니다. 드래그 앤 드롭으로 블록을 배치하세요.</p>"
+          },
+          "content_items": null,
+          "is_active": true
+        },
+        {
+          "column_index": 1,
+          "width": "",
+          "pc_padding": "20px",
+          "mobile_padding": "15px",
+          "background_config": {
+            "color": "#ffffff"
+          },
+          "border_config": {
+            "width": "1px",
+            "color": "#e9ecef",
+            "radius": "8px",
+            "style": "solid"
+          },
+          "title_config": {
+            "show": true,
+            "text": "멀티 도메인",
+            "color": "#1a1a2e",
+            "size_pc": "18",
+            "size_mo": "16",
+            "position": "center",
+            "more_link": false
+          },
+          "content_type": "html",
+          "content_kind": "CORE",
+          "content_skin": "basic",
+          "content_config": {
+            "html": "<p style=\"text-align:center; color:#6c757d; font-size:14px; line-height:1.6;\">하나의 설치로 여러 도메인을 운영하세요. 도메인별로 독립된 설정과 회원을 관리합니다.</p>"
+          },
+          "content_items": null,
+          "is_active": true
+        },
+        {
+          "column_index": 2,
+          "width": "",
+          "pc_padding": "20px",
+          "mobile_padding": "15px",
+          "background_config": {
+            "color": "#ffffff"
+          },
+          "border_config": {
+            "width": "1px",
+            "color": "#e9ecef",
+            "radius": "8px",
+            "style": "solid"
+          },
+          "title_config": {
+            "show": true,
+            "text": "확장 시스템",
+            "color": "#1a1a2e",
+            "size_pc": "18",
+            "size_mo": "16",
+            "position": "center",
+            "more_link": false
+          },
+          "content_type": "html",
+          "content_kind": "CORE",
+          "content_skin": "basic",
+          "content_config": {
+            "html": "<p style=\"text-align:center; color:#6c757d; font-size:14px; line-height:1.6;\">플러그인과 패키지로 기능을 확장하세요. 쇼핑몰, 예약, 구인구직 등 다양한 패키지를 제공합니다.</p>"
+          },
+          "content_items": null,
+          "is_active": true
+        }
+      ]
+    }
+  ]
+}

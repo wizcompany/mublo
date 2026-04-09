@@ -1,0 +1,12 @@
+{
+    "name": "Shop",
+    "label": "Mublo Shop",
+    "description": "상품, 장바구니, 주문, 결제 기능을 제공하는 쇼핑몰 패키지",
+    "version": "1.0.0",
+    "author": "Mublo",
+    "author_url": "https://github.com/wizcompany/Mublo",
+    "icon": "bi-shop",
+    "requires": {
+        "core": ">=1.0.0"
+    }
+}

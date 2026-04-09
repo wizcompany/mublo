@@ -1,0 +1,63 @@
+# Mublo Framework public repository
+
+# Installed/generated directories
+/config/*
+/storage/
+/vendor/
+!/config/
+!/config/.gitkeep
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local PHPUnit overrides
+phpunit.xml
+.phpunit.result.cache
+.phpunit.cache/
+/coverage/
+
+# Logs and cache
+*.log
+/.cache/
+
+# Local build artifacts
+/node_modules/
+/public/build/
+npm-debug.log*
+yarn-error.log*
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.tmp
+
+# Local backup files
+*.bak
+*.backup-*
+
+# Local/public runtime uploads
+/public/storage/*
+!/public/storage/
+!/public/storage/.gitkeep
+
+# Editor local override
+/public/assets/lib/editor/*/config.local.php
+
+# Local notes and review artifacts
+.mcp.json
+guide.md
+/reviews/
+/openReviews/
+/review-notes/
+/regacy-docs/
+
+# Misc local files
+composer.phar
+nul
