@@ -2519,7 +2519,7 @@ const MubloEditor = (() => {
                 this.fire('change');
                 return this;
             }
-            const html = `<figure class="mublo-image" style="margin:1em 0;"><img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="lazy" style="max-width:100%; height:auto; border-radius:4px; display:block;"></figure>`;
+            const html = `<figure class="mublo-image" style="margin:1em 0; text-align:center;"><img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="lazy" style="max-width:100%; height:auto; border-radius:4px;"></figure>`;
             return this.insertContent(html);
         }
 

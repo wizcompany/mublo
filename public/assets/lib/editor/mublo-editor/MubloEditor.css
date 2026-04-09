@@ -132,6 +132,12 @@
     max-width: 100%;
     height: auto;
 }
+.mublo-editor-content .mublo-image {
+    margin: 1em 0;
+}
+.mublo-editor-content .mublo-image img {
+    border-radius: 4px;
+}
 .mublo-editor-video-wrapper {
     position: relative;
     padding-bottom: 56.25%;
