@@ -142,7 +142,8 @@ class BoardProvider implements ExtensionProviderInterface, InstallableExtensionI
                 $c->get(BoardGroupRepository::class),
                 $c->get(BoardCategoryMappingRepository::class),
                 $c->get(BoardArticleRepository::class),
-                $c->get(EventDispatcher::class)
+                $c->get(EventDispatcher::class),
+                $c->get(AuthService::class)
             )
         );
         $container->singleton(BoardCategoryService::class, fn(DependencyContainer $c) =>

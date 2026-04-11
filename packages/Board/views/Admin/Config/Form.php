@@ -13,10 +13,12 @@
  * @var array $selectedCategoryIds 선택된 카테고리 ID 배열
  * @var array $skins 스킨 옵션
  * @var array $editors 에디터 옵션
+ * @var bool $isSuper 현재 로그인 관리자가 Super 여부 (is_global 체크박스 노출 제어)
  */
 
 $board = $board ?? [];
 $isEdit = $isEdit ?? false;
+$isSuper = $isSuper ?? false;
 
 $anchor = [
     'anc_basic' => '기본정보',
@@ -129,6 +131,23 @@ $anchor = [
                                                <?= ($board['is_active'] ?? true) ? 'checked' : '' ?>>
                                         <label class="form-check-label" for="is_active">사용</label>
                                     </div>
+                                    <?php if ($isSuper): ?>
+                                    <div class="form-check form-switch mt-2">
+                                        <input type="checkbox"
+                                               class="form-check-input"
+                                               name="formData[is_global]"
+                                               id="is_global"
+                                               value="1"
+                                               <?= ($board['is_global'] ?? false) ? 'checked' : '' ?>>
+                                        <label class="form-check-label" for="is_global">
+                                            전체 공지(모든 도메인 공통)
+                                            <i class="bi bi-shield-lock-fill text-danger ms-1" title="Super 관리자 전용"></i>
+                                        </label>
+                                        <div class="form-text">
+                                            활성화 시 모든 도메인의 Front 에서 이 게시판을 볼 수 있습니다. 글 작성/수정/삭제는 게시판 소유 도메인 관리자만 가능합니다.
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="row gy-3 gy-md-0">

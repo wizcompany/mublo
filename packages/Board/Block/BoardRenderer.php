@@ -79,13 +79,14 @@ class BoardRenderer implements RendererInterface
             return $this->renderEmptyContent('게시판을 찾을 수 없습니다.');
         }
 
-        // 최신글 조회
+        // 최신글 조회 (전역 게시판이면 도메인 필터 생략)
         $result = $this->articleRepository->getPaginatedList(
             $column->getDomainId(),
             $board->getBoardId(),
             1,
             $count,
-            ['status' => 'published']
+            ['status' => 'published'],
+            $board->isGlobal()
         );
 
         // ArticlePresenter로 스킨용 데이터 변환

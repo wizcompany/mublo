@@ -133,7 +133,8 @@ class BoardGroupRenderer implements RendererInterface
                 $boardId,
                 1,
                 $count,
-                ['status' => 'published']
+                ['status' => 'published'],
+                $board->isGlobal()
             );
 
             // ArticlePresenter로 스킨용 데이터 변환

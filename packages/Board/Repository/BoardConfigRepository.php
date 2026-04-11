@@ -41,7 +41,7 @@ class BoardConfigRepository extends BaseRepository
     public function findByDomain(int $domainId, int $limit = 100, int $offset = 0): array
     {
         $rows = $this->getDb()->table($this->table)
-            ->where('domain_id', '=', $domainId)
+            ->whereRaw('(domain_id = ? OR is_global = 1)', [$domainId])
             ->orderBy('sort_order', 'ASC')
             ->limit($limit)
             ->offset($offset)
@@ -71,21 +71,26 @@ class BoardConfigRepository extends BaseRepository
      */
     public function findBySlug(int $domainId, string $slug): ?BoardConfig
     {
-        return $this->findOneBy([
-            'domain_id' => $domainId,
-            'board_slug' => $slug,
-        ]);
+        $row = $this->getDb()->table($this->table)
+            ->whereRaw('(domain_id = ? OR is_global = 1)', [$domainId])
+            ->where('board_slug', '=', $slug)
+            ->orderBy('is_global', 'ASC')
+            ->first();
+
+        return $row ? BoardConfig::fromArray($row) : null;
     }
 
     /**
      * 슬러그 중복 검사
+     *
+     * 현재 도메인의 슬러그 + 전역(is_global) 슬러그 충돌도 함께 차단한다.
      */
     public function existsBySlug(int $domainId, string $slug): bool
     {
-        return $this->existsBy([
-            'domain_id' => $domainId,
-            'board_slug' => $slug,
-        ]);
+        return $this->getDb()->table($this->table)
+            ->whereRaw('(domain_id = ? OR is_global = 1)', [$domainId])
+            ->where('board_slug', '=', $slug)
+            ->exists();
     }
 
     /**
@@ -94,7 +99,7 @@ class BoardConfigRepository extends BaseRepository
     public function existsBySlugExceptSelf(int $domainId, string $slug, int $boardId): bool
     {
         $query = $this->getDb()->table($this->table)
-            ->where('domain_id', '=', $domainId)
+            ->whereRaw('(domain_id = ? OR is_global = 1)', [$domainId])
             ->where('board_slug', '=', $slug)
             ->where('board_id', '!=', $boardId);
 
@@ -106,7 +111,9 @@ class BoardConfigRepository extends BaseRepository
      */
     public function countByDomain(int $domainId): int
     {
-        return $this->countBy(['domain_id' => $domainId]);
+        return $this->getDb()->table($this->table)
+            ->whereRaw('(domain_id = ? OR is_global = 1)', [$domainId])
+            ->count();
     }
 
     /**
@@ -126,7 +133,7 @@ class BoardConfigRepository extends BaseRepository
     public function findActiveByDomain(int $domainId): array
     {
         $rows = $this->getDb()->table($this->table)
-            ->where('domain_id', '=', $domainId)
+            ->whereRaw('(domain_id = ? OR is_global = 1)', [$domainId])
             ->where('is_active', '=', 1)
             ->orderBy('sort_order', 'ASC')
             ->get();
@@ -222,7 +229,7 @@ class BoardConfigRepository extends BaseRepository
                 'g.group_slug',
             ])
             ->leftJoin('board_groups AS g', 'b.group_id', '=', 'g.group_id')
-            ->where('b.domain_id', '=', $domainId)
+            ->whereRaw('(b.domain_id = ? OR b.is_global = 1)', [$domainId])
             ->orderBy('g.sort_order', 'ASC')
             ->orderBy('b.sort_order', 'ASC')
             ->limit($limit)

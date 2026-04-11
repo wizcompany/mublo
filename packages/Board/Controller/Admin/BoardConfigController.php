@@ -9,6 +9,7 @@ use Mublo\Packages\Board\Service\BoardConfigService;
 use Mublo\Packages\Board\Service\BoardGroupService;
 use Mublo\Packages\Board\Service\BoardCategoryService;
 use Mublo\Service\Member\MemberLevelService;
+use Mublo\Service\Auth\AuthService;
 use Mublo\Helper\Form\FormHelper;
 
 /**
@@ -31,6 +32,7 @@ class BoardConfigController
     private BoardCategoryService $categoryService;
     private MemberLevelService $levelService;
     private MigrationRunner $migrationRunner;
+    private AuthService $authService;
 
     private const PACKAGE_NAME = 'Board';
 
@@ -39,13 +41,15 @@ class BoardConfigController
         BoardGroupService $groupService,
         BoardCategoryService $categoryService,
         MemberLevelService $levelService,
-        MigrationRunner $migrationRunner
+        MigrationRunner $migrationRunner,
+        AuthService $authService
     ) {
         $this->boardService = $boardService;
         $this->groupService = $groupService;
         $this->categoryService = $categoryService;
         $this->levelService = $levelService;
         $this->migrationRunner = $migrationRunner;
+        $this->authService = $authService;
     }
 
     /**
@@ -102,6 +106,7 @@ class BoardConfigController
                 'skins' => $this->boardService->getAvailableSkins(),
                 'editors' => $this->boardService->getAvailableEditors(),
                 'levelOptions' => $this->levelService->getOptionsForSelect(),
+                'isSuper' => $this->authService->isSuper(),
             ]);
     }
 
@@ -143,6 +148,7 @@ class BoardConfigController
                 'skins' => $this->boardService->getAvailableSkins(),
                 'editors' => $this->boardService->getAvailableEditors(),
                 'levelOptions' => $this->levelService->getOptionsForSelect(),
+                'isSuper' => $this->authService->isSuper(),
             ]);
     }
 
@@ -414,6 +420,7 @@ class BoardConfigController
                 'use_category', 'use_comment', 'use_reaction', 'use_link', 'use_file',
                 'use_separate_table',
                 'is_active',
+                'is_global',
             ],
             'required_string' => ['board_slug', 'board_name'],
         ];

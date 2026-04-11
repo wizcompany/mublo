@@ -91,6 +91,7 @@ class BoardConfig
     // ========================================
     protected int $sortOrder;
     protected bool $isActive;
+    protected bool $isGlobal;
     protected DateTimeImmutable $createdAt;
     protected DateTimeImmutable $updatedAt;
 
@@ -156,6 +157,7 @@ class BoardConfig
         // 관리
         $config->sortOrder = (int) ($data['sort_order'] ?? 0);
         $config->isActive = (bool) ($data['is_active'] ?? true);
+        $config->isGlobal = (bool) ($data['is_global'] ?? false);
 
         // 날짜
         $config->createdAt = self::parseDateTime($data['created_at'] ?? null);
@@ -241,6 +243,7 @@ class BoardConfig
             'table_name' => $this->tableName,
             'sort_order' => $this->sortOrder,
             'is_active' => $this->isActive,
+            'is_global' => $this->isGlobal,
             'created_at' => $this->createdAt->format('Y-m-d H:i:s'),
             'updated_at' => $this->updatedAt->format('Y-m-d H:i:s'),
         ];
@@ -545,6 +548,11 @@ class BoardConfig
     public function isActive(): bool
     {
         return $this->isActive;
+    }
+
+    public function isGlobal(): bool
+    {
+        return $this->isGlobal;
     }
 
     public function getCreatedAt(): DateTimeImmutable

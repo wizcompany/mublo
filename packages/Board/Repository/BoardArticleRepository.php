@@ -54,11 +54,16 @@ class BoardArticleRepository extends BaseRepository
         int $boardId,
         int $page = 1,
         int $perPage = 20,
-        array $filters = []
+        array $filters = [],
+        bool $isGlobal = false
     ): array {
         $query = $this->getDb()->table($this->table . ' AS a')
-            ->where('a.domain_id', '=', $domainId)
             ->where('a.board_id', '=', $boardId);
+
+        // 전역 게시판이 아닌 경우에만 도메인 필터를 적용
+        if (!$isGlobal) {
+            $query->where('a.domain_id', '=', $domainId);
+        }
 
         // 상태 필터 (기본: published)
         $status = $filters['status'] ?? 'published';
@@ -126,13 +131,18 @@ class BoardArticleRepository extends BaseRepository
      * @param int $limit 조회 개수
      * @return BoardArticle[]
      */
-    public function getNotices(int $domainId, int $boardId, int $limit = 10): array
+    public function getNotices(int $domainId, int $boardId, int $limit = 10, bool $isGlobal = false): array
     {
-        $rows = $this->getDb()->table($this->table)
-            ->where('domain_id', '=', $domainId)
+        $query = $this->getDb()->table($this->table)
             ->where('board_id', '=', $boardId)
             ->where('is_notice', '=', 1)
-            ->where('status', '=', 'published')
+            ->where('status', '=', 'published');
+
+        if (!$isGlobal) {
+            $query->where('domain_id', '=', $domainId);
+        }
+
+        $rows = $query
             ->orderBy('created_at', 'DESC')
             ->limit($limit)
             ->get();

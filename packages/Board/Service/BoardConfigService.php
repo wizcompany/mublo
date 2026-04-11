@@ -9,6 +9,7 @@ use Mublo\Packages\Board\Entity\BoardConfig;
 use Mublo\Core\Result\Result;
 use Mublo\Core\Event\EventDispatcher;
 use Mublo\Core\Event\EventInterface;
+use Mublo\Service\Auth\AuthService;
 use Mublo\Packages\Board\Event\BoardConfigCreatedEvent;
 use Mublo\Packages\Board\Event\BoardConfigDeletedEvent;
 use Mublo\Helper\Directory\DirectoryHelper;
@@ -35,6 +36,7 @@ class BoardConfigService
     private BoardCategoryMappingRepository $categoryMappingRepository;
     private BoardArticleRepository $articleRepository;
     private ?EventDispatcher $eventDispatcher;
+    private ?AuthService $authService;
 
     /**
      * 슬러그 예약어 목록
@@ -75,13 +77,31 @@ class BoardConfigService
         BoardGroupRepository $groupRepository,
         BoardCategoryMappingRepository $categoryMappingRepository,
         BoardArticleRepository $articleRepository,
-        ?EventDispatcher $eventDispatcher = null
+        ?EventDispatcher $eventDispatcher = null,
+        ?AuthService $authService = null
     ) {
         $this->repository = $repository;
         $this->groupRepository = $groupRepository;
         $this->categoryMappingRepository = $categoryMappingRepository;
         $this->articleRepository = $articleRepository;
         $this->eventDispatcher = $eventDispatcher;
+        $this->authService = $authService;
+    }
+
+    /**
+     * is_global 플래그는 Super 관리자만 설정 가능
+     * Super 가 아닐 경우 0 으로 강제 (뷰 우회/직접 호출 방어)
+     */
+    private function enforceGlobalFlag(array &$data): void
+    {
+        if (!array_key_exists('is_global', $data)) {
+            return;
+        }
+
+        $isSuper = $this->authService?->isSuper() ?? false;
+        if (!$isSuper) {
+            $data['is_global'] = 0;
+        }
     }
 
     /**
@@ -243,6 +263,7 @@ class BoardConfigService
 
         // 데이터 정규화
         $insertData = $this->normalizeData($data);
+        $this->enforceGlobalFlag($insertData);
         $insertData['domain_id'] = $domainId;
         $insertData['sort_order'] = $sortOrder;
 
@@ -318,6 +339,7 @@ class BoardConfigService
 
         // 데이터 정규화
         $updateData = $this->normalizeData($data);
+        $this->enforceGlobalFlag($updateData);
 
         // domain_id, sort_order는 수정 불가
         unset($updateData['domain_id'], $updateData['sort_order']);
@@ -531,6 +553,7 @@ class BoardConfigService
                 'use_category', 'use_comment', 'use_reaction', 'use_link', 'use_file',
                 'use_separate_table',
                 'is_active',
+                'is_global',
             ],
         ];
 

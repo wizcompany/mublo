@@ -97,13 +97,14 @@ class BoardArticleService
             return Result::failure('목록 보기 권한이 없습니다.');
         }
 
-        // 목록 조회
+        // 목록 조회 (전역 게시판이면 도메인 필터 생략)
         $result = $this->articleRepository->getPaginatedList(
             $domainId,
             $boardId,
             $page,
             $filters['per_page'] ?? 20,
-            $filters
+            $filters,
+            $board->isGlobal()
         );
 
         return Result::success('', [
@@ -459,7 +460,9 @@ class BoardArticleService
      */
     public function getNotices(int $domainId, int $boardId, int $limit = 10): array
     {
-        $notices = $this->articleRepository->getNotices($domainId, $boardId, $limit);
+        $board = $this->boardRepository->find($boardId);
+        $isGlobal = $board ? $board->isGlobal() : false;
+        $notices = $this->articleRepository->getNotices($domainId, $boardId, $limit, $isGlobal);
         return array_map(fn($n) => $n->toArray(), $notices);
     }
 
